@@ -20,11 +20,11 @@ public class NdfdXMLBindingStubTest {
         String result = binding.latLonListZipCode("53711");
 
         try {
+            // create JAXB context and initializing Marshaller
             JAXBContext jaxbContext = JAXBContext.newInstance(DwmlType.class);
-
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
-
+            // Creating Java object from the XML string
             DwmlType dwml = (DwmlType) jaxbUnmarshaller.unmarshal(new StringReader(result));
 
             assertEquals("Results did not match expected value.", "43.0798,-89.3875", dwml.getLatLonList());
